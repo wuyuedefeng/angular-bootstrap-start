@@ -1,5 +1,5 @@
 var controllers = angular.module('controllers', ['services', 'directives']);
-controllers.controller('testController', ['$scope', function($scope){
+controllers.controller('testController', ['$scope', 'orderHttp', function($scope, orderHttp){
 	 $scope.alerts = [
 	    { type: 'danger', msg: 'Oh snap! Change a few things up and try submitting again.' },
 	    { type: 'success', msg: 'Well done! You successfully read this important alert message.' }
@@ -12,4 +12,11 @@ controllers.controller('testController', ['$scope', function($scope){
 	  $scope.closeAlert = function(index) {
 	    $scope.alerts.splice(index, 1);
 	  };
+
+
+	orderHttp.get_test(function(dataObj){
+		console.log(dataObj);
+	}, function(errorObj){
+		console.log(errorObj);
+	})
 }]);
