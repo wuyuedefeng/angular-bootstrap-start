@@ -24,7 +24,7 @@ services.factory('httpBase', ['$http', 'handleHttpError', function($http, handle
     return{
         request: function(paramsObj){
             var requestObj = {method: paramsObj.method, url: paramsObj.url};
-            if (/get/i.test(paramsObj.method)){
+            if (paramsObj.method == "GET"){
                 requestObj.params = paramsObj.params;
             }else {
                 requestObj.data = paramsObj.params;
