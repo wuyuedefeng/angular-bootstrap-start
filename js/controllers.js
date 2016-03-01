@@ -13,8 +13,8 @@ controllers.controller('testController', ['$scope', 'orderHttp', function($scope
 	    $scope.alerts.splice(index, 1);
 	  };
 
-
-	orderHttp.get_test(function(dataObj){
+    //params:{}, successDo, errorDo
+	orderHttp.get_test({a:1, b:2}, function(dataObj){
 		console.log(dataObj);
 	}, function(errorObj){
 		console.log(errorObj);

@@ -71,10 +71,10 @@ services.factory('httpBase', ['$http', 'handleHttpError', function($http, handle
 // custom orderHttp demo
 services.factory('orderHttp', ['httpBase', function(httpBase){
     return {
-        get_test: function(successDo, errorDo){
+        get_test: function(params, successDo, errorDo){
             httpBase.get({
                 url: '/api/orders/list',
-                params: {a: 1, b: 2},
+                params: params,
                 successDo: successDo,
                 errorDo: errorDo
             });
