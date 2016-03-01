@@ -1,6 +1,6 @@
 var services = angular.module('services', []);
 //公共服务,处理网络请求异常或者程序异常等等情况
-// params{result, status, headers, congfig, paramsObj}
+// params{result, status, headers, config, paramsObj}
 services.factory("handleHttpError",["$timeout",function($timeout){
     return {
         deal_app_error: function(params) {
@@ -30,13 +30,13 @@ services.factory('httpBase', ['$http', 'handleHttpError', function($http, handle
                 requestObj.data = paramsObj.params;
             }
 
-            $http(requestObj).success(function(result,status,headers,congfig){
-                var handleResult = {result: result,status: status,headers: headers,congfig:congfig, paramsObj:paramsObj};
+            $http(requestObj).success(function(result,status,headers,config){
+                var handleResult = {result: result,status: status,headers: headers,config:config, paramsObj:paramsObj};
                 if(handleHttpError.deal_app_error(handleResult)){
                     paramsObj["successDo"] && paramsObj["successDo"](handleResult);
                 }
-            }).error(function(result,status,headers,congfig){
-                handleHttpError.deal_network_error({result: result,status: status,headers: headers,congfig:congfig, paramsObj:paramsObj});
+            }).error(function(result,status,headers,config){
+                handleHttpError.deal_network_error({result: result,status: status,headers: headers,config:config, paramsObj:paramsObj});
             })
         },
 
@@ -49,13 +49,13 @@ services.factory('httpBase', ['$http', 'handleHttpError', function($http, handle
             //    method:'GET',
             //    url: paramsObj.url,
             //    params: paramsObj.params
-            //}).success(function(result,status,headers,congfig){
-            //    var handleResult = {result: result,status: status,headers: headers,congfig:congfig, paramsObj:paramsObj};
+            //}).success(function(result,status,headers,config){
+            //    var handleResult = {result: result,status: status,headers: headers,config:config, paramsObj:paramsObj};
             //    if(handleHttpError.deal_app_error(handleResult)){
             //        paramsObj["successDo"] && paramsObj["successDo"](handleResult);
             //    }
-            //}).error(function(result,status,headers,congfig){
-            //    handleHttpError.deal_network_error({result: result,status: status,headers: headers,congfig:congfig, paramsObj:paramsObj});
+            //}).error(function(result,status,headers,config){
+            //    handleHttpError.deal_network_error({result: result,status: status,headers: headers,config:config, paramsObj:paramsObj});
             //})
         },
 
@@ -68,12 +68,12 @@ services.factory('httpBase', ['$http', 'handleHttpError', function($http, handle
             //    url: paramsObj.url,
             //    data: paramsObj.params
             //}).success(function(result){
-            //    var handleResult = {result: result,status: status,headers: headers,congfig:congfig, paramsObj:paramsObj};
+            //    var handleResult = {result: result,status: status,headers: headers,config:config, paramsObj:paramsObj};
             //    if(handleHttpError.deal_app_error(handleResult)){
             //        paramsObj["successDo"] && paramsObj["successDo"](handleResult);
             //    }
-            //}).error(function(result,status,headers,congfig){
-            //    handleHttpError.deal_network_error({result: result,status: status,headers: headers,congfig:congfig, paramsObj:paramsObj});
+            //}).error(function(result,status,headers,config){
+            //    handleHttpError.deal_network_error({result: result,status: status,headers: headers,config:config, paramsObj:paramsObj});
             //})
         },
         put: function(paramsObj){
@@ -85,12 +85,12 @@ services.factory('httpBase', ['$http', 'handleHttpError', function($http, handle
             //    url: paramsObj.url,
             //    data: paramsObj.params
             //}).success(function(result){
-            //    var handleResult = {result: result,status: status,headers: headers,congfig:congfig, paramsObj:paramsObj};
+            //    var handleResult = {result: result,status: status,headers: headers,config:config, paramsObj:paramsObj};
             //    if(handleHttpError.deal_app_error(handleResult)){
             //        paramsObj["successDo"] && paramsObj["successDo"](handleResult);
             //    }
-            //}).error(function(result,status,headers,congfig){
-            //    handleHttpError.deal_network_error({result: result,status: status,headers: headers,congfig:congfig, paramsObj:paramsObj});
+            //}).error(function(result,status,headers,config){
+            //    handleHttpError.deal_network_error({result: result,status: status,headers: headers,config:config, paramsObj:paramsObj});
             //})
         }
     }
