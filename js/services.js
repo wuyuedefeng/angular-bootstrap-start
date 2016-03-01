@@ -1,7 +1,7 @@
 var services = angular.module('services', []);
 //公共服务,处理网络请求异常或者程序异常等等情况
 // params{result, status, headers, config, paramsObj}
-services.factory("handleHttpError",["$timeout",function($timeout){
+services.factory("handleHttpError", function(){
     return {
         deal_app_error: function(params) {
             if (!params.result || !params.result.success) {
@@ -17,7 +17,7 @@ services.factory("handleHttpError",["$timeout",function($timeout){
             return false;
         }
     }
-}]);
+});
 
 // paramsObj {url: '/', params:{a:1, b:1}, successDo:function(handleResult), errorDo:(handleResult)   }
 services.factory('httpBase', ['$http', 'handleHttpError', function($http, handleHttpError){
