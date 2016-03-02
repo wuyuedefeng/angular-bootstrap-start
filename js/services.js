@@ -12,7 +12,7 @@ services.factory("handleHttpError", function(){
             return true;
         },
         deal_network_error: function(params){
-            console.log("错误码:"+status);
+            console.log("错误码:", params.status);
             params && params["paramsObj"] && (params["error_code"] = "network_error") && params["paramsObj"]["errorDo"] && params["paramsObj"]["errorDo"](params);
             return false;
         }
