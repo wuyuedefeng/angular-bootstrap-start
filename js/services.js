@@ -32,10 +32,12 @@ services.factory('httpBase', ['$http', 'handleHttpError', function($http, handle
 
             $http(requestObj).success(function(result,status,headers,config){
                 var handleResult = {result: result,status: status,headers: headers,config:config, paramsObj:paramsObj};
+                var isErr = true;
                 if(handleHttpError.deal_app_error(handleResult)){
+                    isErr = false;
                     paramsObj["successDo"] && paramsObj["successDo"](handleResult);
                 }
-                paramsObj["alwaysDo"] && paramsObj["alwaysDo"](false, handleResult);
+                paramsObj["alwaysDo"] && paramsObj["alwaysDo"](isErr, handleResult);
             }).error(function(result,status,headers,config){
                 var handleResult = {result: result,status: status,headers: headers,config:config, paramsObj:paramsObj};
                 handleHttpError.deal_network_error(handleResult);
