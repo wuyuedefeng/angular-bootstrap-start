@@ -19,7 +19,7 @@ services.factory("handleHttpError", function(){
     }
 });
 
-// paramsObj {url: '/', params:{a:1, b:1}, successDo:function(handleResult), errorDo:(handleResult)   }
+// paramsObj {url: '/', params:{a:1, b:1}, successDo:function(handleResult), errorDo:(handleResult), alwaysDo:(isError, handleResult)}
 services.factory('httpBase', ['$http', 'handleHttpError', function($http, handleHttpError){
     return{
         request: function(paramsObj){
@@ -35,63 +35,26 @@ services.factory('httpBase', ['$http', 'handleHttpError', function($http, handle
                 if(handleHttpError.deal_app_error(handleResult)){
                     paramsObj["successDo"] && paramsObj["successDo"](handleResult);
                 }
+                paramsObj["alwaysDo"] && paramsObj["alwaysDo"](false, handleResult);
             }).error(function(result,status,headers,config){
-                handleHttpError.deal_network_error({result: result,status: status,headers: headers,config:config, paramsObj:paramsObj});
+                var handleResult = {result: result,status: status,headers: headers,config:config, paramsObj:paramsObj};
+                handleHttpError.deal_network_error(handleResult);
+                paramsObj["alwaysDo"] && paramsObj["alwaysDo"](handleResult, true);
             })
         },
-
 
         get: function(paramsObj){
             paramsObj.method = "GET";
             this.request(paramsObj);
-
-            //$http({
-            //    method:'GET',
-            //    url: paramsObj.url,
-            //    params: paramsObj.params
-            //}).success(function(result,status,headers,config){
-            //    var handleResult = {result: result,status: status,headers: headers,config:config, paramsObj:paramsObj};
-            //    if(handleHttpError.deal_app_error(handleResult)){
-            //        paramsObj["successDo"] && paramsObj["successDo"](handleResult);
-            //    }
-            //}).error(function(result,status,headers,config){
-            //    handleHttpError.deal_network_error({result: result,status: status,headers: headers,config:config, paramsObj:paramsObj});
-            //})
         },
 
-        post: function(paramsObj, url, params, successFunc, errorFunc, alwaysFunc){
+        post: function(paramsObj){
             paramsObj.method = "POST";
             this.request(paramsObj);
-
-            //$http({
-            //    method:'POST',
-            //    url: paramsObj.url,
-            //    data: paramsObj.params
-            //}).success(function(result){
-            //    var handleResult = {result: result,status: status,headers: headers,config:config, paramsObj:paramsObj};
-            //    if(handleHttpError.deal_app_error(handleResult)){
-            //        paramsObj["successDo"] && paramsObj["successDo"](handleResult);
-            //    }
-            //}).error(function(result,status,headers,config){
-            //    handleHttpError.deal_network_error({result: result,status: status,headers: headers,config:config, paramsObj:paramsObj});
-            //})
         },
         put: function(paramsObj){
             paramsObj.method = "PUT";
             this.request(paramsObj);
-
-            //$http({
-            //    method:'PUT',
-            //    url: paramsObj.url,
-            //    data: paramsObj.params
-            //}).success(function(result){
-            //    var handleResult = {result: result,status: status,headers: headers,config:config, paramsObj:paramsObj};
-            //    if(handleHttpError.deal_app_error(handleResult)){
-            //        paramsObj["successDo"] && paramsObj["successDo"](handleResult);
-            //    }
-            //}).error(function(result,status,headers,config){
-            //    handleHttpError.deal_network_error({result: result,status: status,headers: headers,config:config, paramsObj:paramsObj});
-            //})
         }
     }
 }]);
