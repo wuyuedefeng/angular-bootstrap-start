@@ -17,7 +17,6 @@
 // 提示 
 //successDo回调只有一个参数，alwaysDo回调两个参数，第一个参数来标示进入success还是error
 //如果值需要处理正确可以只用successDo,如果还需要单独处理错误可以添加errorDo方法，如果需要同时处理正确和错误方法，可以放到alwaysDo中（如果用到了alwaysDo就没有必要再用successDo和errorDo了，因为alwaysDo的第一个参数就一个可以判断了）
-
 httpBase.get({
     url: '/api/users/login',
     params: params,
