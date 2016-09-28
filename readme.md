@@ -6,8 +6,8 @@
 
 
 
-
-集成 [angular-ui/bootstrap](https://github.com/angular-ui/bootstrap) （angular对bootstrap组件的封装）
+该分支`移除了angular-ui/bootstrap`
+[angular-ui/bootstrap](https://github.com/angular-ui/bootstrap) （angular对bootstrap组件的封装）
 >* github:  https://github.com/angular-ui/bootstrap
 >* 使用手册：[http://angular-ui.github.io/bootstrap/](http://angular-ui.github.io/bootstrap/)
 
