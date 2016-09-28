@@ -1,4 +1,5 @@
 'use strict';
+// http://www.cnblogs.com/yanliangnh/p/5695239.html
 // npm install gulp-htmlmin --save-dev
 var gulp = require('gulp');
 var htmlmin = require('gulp-htmlmin');

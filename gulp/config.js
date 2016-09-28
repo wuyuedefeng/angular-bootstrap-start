@@ -18,7 +18,8 @@ module.exports = {
         dest: dest + "/"
     },
     img: {
-        src: src + "/img/**/*",
+        src: src + "/img/**/*.{png,jpg,gif,ico}",
         dest: dest + "/img"
-    }
+    },
+    dest: dest
 }

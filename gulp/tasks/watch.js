@@ -18,6 +18,9 @@ gulp.task('watch', function(){
     watch(config.html.src, function () {
         gulp.run('html');
     });
+    watch(config.img.src, function () {
+        gulp.run('img');
+    });
 
 });
 
