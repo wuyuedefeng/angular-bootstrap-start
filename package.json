@@ -1,0 +1,19 @@
+{
+  "name": "tcase",
+  "version": "1.0.0",
+  "description": "使用到的库： >* bootstrap >* jquery >* angular.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wuyuedefeng/angular-bootstrap-start.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wuyuedefeng/angular-bootstrap-start/issues"
+  },
+  "homepage": "https://github.com/wuyuedefeng/angular-bootstrap-start#readme"
+}
