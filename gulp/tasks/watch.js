@@ -12,6 +12,10 @@ gulp.task('watch', function(){
     watch(config.sass.src, function(){  //监听所有sass
         gulp.run('sass'); 			//出现修改、立马执行sass任务
     });
+    watch(config.js.src, function () {
+        gulp.run('js');
+    });
+
     // watch(config.images.src, function(){  //监听所有image
     //     gulp.start('images');
     // });

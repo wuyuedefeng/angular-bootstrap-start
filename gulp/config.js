@@ -9,12 +9,12 @@ module.exports = {
         mid: src + "/css/**/*.css",
         dest: dest + "/css"	   //输出目录
     },
-    images: {
+    js: {
+        src: src + "/js/**/*.js",
+        dest: dest + "/js"
+    },
+    img: {
         src: src + "/img/**/*",
         dest: dest + "/img"
-    },
-    js: {
-        src: src + "/js/**/*",
-        dest: dest + "/js"
     }
 }

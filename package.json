@@ -19,6 +19,7 @@
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-sass": "^2.3.2",
+    "gulp-uglify": "^2.0.0",
     "gulp-watch": "^4.3.10",
     "require-dir": "^0.3.0"
   }

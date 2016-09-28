@@ -4,10 +4,10 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 
-var config = require('../config').sass;
+var sassConfig = require('../config').sass;
 
 gulp.task('sass', function () {
-    return gulp.src(config.src).pipe(sass.sync().on('error', sass.logError))
+    return gulp.src(sassConfig.src).pipe(sass.sync().on('error', sass.logError))
         .pipe(sass({outputStyle: 'compressed'}).on('error',  sass.logError))
-        .pipe(gulp.dest(config.midDev));
+        .pipe(gulp.dest(sassConfig.midDev));
 });
