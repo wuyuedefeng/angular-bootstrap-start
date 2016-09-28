@@ -17,6 +17,9 @@
   },
   "homepage": "https://github.com/wuyuedefeng/angular-bootstrap-start#readme",
   "devDependencies": {
-    "gulp": "^3.9.1"
+    "gulp": "^3.9.1",
+    "gulp-sass": "^2.3.2",
+    "gulp-watch": "^4.3.10",
+    "require-dir": "^0.3.0"
   }
 }
