@@ -1712,10 +1712,10 @@ function angularInit(element, bootstrap) {
  * ```
  *
  * @param {DOMElement} element DOM element which is the root of angular application.
- * @param {Array<String|Function|Array>=} modules an array of modules to load into the application.
+ * @param {Array<String|Function|Array>=} modules an array of controllers to load into the application.
  *     Each item in the array should be the name of a predefined module or a (DI annotated)
  *     function that will be invoked by the injector as a `config` block.
- *     See: {@link angular.module modules}
+ *     See: {@link angular.module controllers}
  * @param {Object=} config an object for defining configuration options for the application. The
  *     following keys are supported:
  *
@@ -1748,7 +1748,7 @@ function bootstrap(element, modules, config) {
     }]);
 
     if (config.debugInfoEnabled) {
-      // Pushing so that this overrides `debugInfoEnabled` setting defined in user's `modules`.
+      // Pushing so that this overrides `debugInfoEnabled` setting defined in user's `controllers`.
       modules.push(['$compileProvider', function($compileProvider) {
         $compileProvider.debugInfoEnabled(true);
       }]);
@@ -2008,7 +2008,7 @@ function setupModuleLoader(window) {
 
   var angular = ensure(window, 'angular', Object);
 
-  // We need to expose `angular.$$minErr` to modules such as `ngResource` that reference it during bootstrap
+  // We need to expose `angular.$$minErr` to controllers such as `ngResource` that reference it during bootstrap
   angular.$$minErr = angular.$$minErr || minErr;
 
   return ensure(angular, 'module', function() {
@@ -2108,7 +2108,7 @@ function setupModuleLoader(window) {
            * @module ng
            *
            * @description
-           * Holds the list of modules which the injector will load before the current module is
+           * Holds the list of controllers which the injector will load before the current module is
            * loaded.
            */
           requires: requires,
@@ -2304,7 +2304,7 @@ function setupModuleLoader(window) {
            *    Useful for application initialization.
            * @description
            * Use this method to register work which should be performed when the injector is done
-           * loading all modules.
+           * loading all controllers.
            */
           run: function(block) {
             runBlocks.push(block);
