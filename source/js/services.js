@@ -62,15 +62,15 @@ services.factory('httpBase', ['$http', 'handleHttpError', function($http, handle
 }]);
 
 // custom orderHttp demo
-services.factory('orderHttp', ['httpBase', function(httpBase){
-    return {
-        get_test: function(params, successDo, errorDo){
-            httpBase.get({
-                url: '/api/orders/list',
-                params: params,
-                successDo: successDo,
-                errorDo: errorDo
-            });
-        }
-    }
-}]);
+// services.factory('orderHttp', ['httpBase', function(httpBase){
+//     return {
+//         get_test: function(params, successDo, errorDo){
+//             httpBase.get({
+//                 url: '/api/orders/list',
+//                 params: params,
+//                 successDo: successDo,
+//                 errorDo: errorDo
+//             });
+//         }
+//     }
+// }]);

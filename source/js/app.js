@@ -1,4 +1,4 @@
-var app = angular.module('myApp', ['ui.bootstrap', 'routes', 'controllers', 'filters']);
+var app = angular.module('myApp', ['routes', 'controllers', 'filters']);
 app.run(['$rootScope', function($rootScope){
 
 }]);
