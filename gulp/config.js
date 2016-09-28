@@ -13,6 +13,10 @@ module.exports = {
         src: src + "/js/**/*.js",
         dest: dest + "/js"
     },
+    html: {
+        src: src + "/**/*.html",
+        dest: dest + "/"
+    },
     img: {
         src: src + "/img/**/*",
         dest: dest + "/img"

@@ -11,5 +11,7 @@ gulp.task('build', function () {
     // js
     gulp.run('js');
 
+    // html
+    gulp.run('html');
 
 });

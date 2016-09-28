@@ -15,12 +15,9 @@ gulp.task('watch', function(){
     watch(config.js.src, function () {
         gulp.run('js');
     });
+    watch(config.html.src, function () {
+        gulp.run('html');
+    });
 
-    // watch(config.images.src, function(){  //监听所有image
-    //     gulp.start('images');
-    // });
-    // watch(config.js.src, function(){  //监听所有js
-    //     gulp.start('js');
-    // });
 });
 
