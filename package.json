@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/wuyuedefeng/angular-bootstrap-start/issues"
   },
-  "homepage": "https://github.com/wuyuedefeng/angular-bootstrap-start#readme"
+  "homepage": "https://github.com/wuyuedefeng/angular-bootstrap-start#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
 }
