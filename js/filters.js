@@ -1,1 +1,1 @@
-var filters = angular.module('filters', []);
+// var filters = angular.module('filters', []);
